@@ -14,7 +14,7 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
         className="mr-3 text-sm flex justify-center gap-2 items-center"
       >
         <Image
-          src="/mistral-logo.jpeg"
+          src="/script-PRMT.svg"
           width={25}
           height={25}
           alt="1 icon"
@@ -23,7 +23,8 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
         <span
           className={`font-medium ${isPRMT ? 'text-gray-400' : 'text-gray-900'}`}
         >
-          (RTF) Template
+{/* Persona Role Mission Tasks  */}
+          (PRMT) Template
         </span>{' '}
       </Switch.Label>
       <Switch
@@ -51,13 +52,14 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
             !isPRMT ? 'text-gray-400' : 'text-gray-900'
           }`}
         >
-          (PRMT) Template
+{/* Role Tasks Format  */}
+        (RTF) Template
         </span>{' '}
         <Image
-          src="/openai-logo.jpeg"
+          src="/script-RTF.svg"
           width={30}
           height={30}
-          alt="OpenAI logo"
+          alt="PRMT logo"
           className={`${!isPRMT && 'opacity-50'}`}
         />
       </Switch.Label>

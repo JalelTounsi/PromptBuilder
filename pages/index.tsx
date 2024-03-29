@@ -120,7 +120,10 @@ const Home: NextPage = () => {
           <b>27,061,984</b> improved prompts generated so far (presumably)
         </p>
         <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
-          Life is short, use better prompts
+          Life is short,
+        </h1>
+        <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
+          use better prompts
         </h1>
 {/* choosing the AI to work with Mixtral or GPT */}
         <div className="mt-7">

@@ -1,38 +1,32 @@
 import Link from 'next/link';
-import Github from './GitHub';
+import Image from 'next/image';
 
 export default function Header() {
   return (
     <header className="flex justify-between items-center w-full mt-5 border-b-2 pb-7 sm:px-4 px-2">
       <Link href="/" className="flex space-x-3">
-        <img
-          alt="header text"
-          src="/logo.svg"
-          className="sm:w-9 sm:h-9 w-8 h-8"
+      <Image
+          src="/star.svg"
+          width={25}
+          height={25}
+          alt="1 icon"
         />
         <h1 className="sm:text-3xl text-2xl font-bold ml-2 tracking-tight">
-          {/* twitterbio.io */}
-          Prompts Builder
+          Better Prompts
         </h1>
       </Link>
       <Link href="/Templates" className="flex space-x-3">
-        <img src="/public/logo.png"
-        className="sm:w-9 sm:h-9 w-8 h-8"
-        />
-        <h3 className="sm:text-1xl text-1xl ml-2 tracking-tight">
-          {/* twitterbio.io */}
+        <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight">
           Templates
         </h3>
       </Link>
       <Link href="/About" className="flex space-x-3">
-        <h3 className="sm:text-1xl text-1xl ml-2 tracking-tight">
-          {/* twitterbio.io */}
+      <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight">
           About
         </h3>
       </Link>
       <Link href="/Blog" className="flex space-x-3">
-        <h3 className="sm:text-1xl text-1xl ml-2 tracking-tight">
-          {/* twitterbio.io */}
+      <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight">
           Blog
         </h3>
       </Link>
@@ -42,8 +36,13 @@ export default function Header() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Github />
-        <p>Star on GitHub</p>
+        <Image
+          src="/heart.svg"
+          width={25}
+          height={25}
+          alt="1 icon"
+        />
+        <p>Sharing is caring</p>
       </a>
     </header>
   );

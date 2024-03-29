@@ -1,12 +1,4 @@
 import Link from 'next/link';
-import {
-  FaDiscord,
-  FaGithub,
-  FaLinkedin,
-  FaMedium,
-  FaTwitter,
-  FaReddit
-} from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -30,6 +22,9 @@ export default function Footer() {
         >
           GPT-3.5
         </a>
+      </div>
+      <div >
+        <h2 className="font-bold transition underline-offset-2">Because AI output is only as good as your prompts</h2>
       </div>
       <div className="flex space-x-4 pb-4 sm:pb-0">
         <Link

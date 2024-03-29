@@ -1,14 +1,12 @@
-# [twitterbio.io](https://www.twitterbio.io/)
+# [betterprompts.io](https://www.betterprompts.io/)
 
-This project generates Twitter (X) bios for you using AI.
+This project generates better prompts for you using AI based on your input and requests.
 
-[![Twitter Bio Generator](./public/screenshot.png)](https://www.twitterbio.io)
+[![Better Prompts Generator](./public/screenshot.png)](https://www.BetterPrompts.io)
 
 ## How it works
 
-This project uses both [Mixtral](https://mistral.ai/news/mixtral-of-experts/) and [GPT-3.5](https://openai.com/api/) with streaming to generate a Twitter bio. It constructs a prompt based on the form and user input, sends it either to the Mixtral API through [Together.ai](https://www.together.ai/) or the GPT-3.5 API through OpenAI, then streams the response back to the application.
-
-If you'd like to see how I built the GPT-3.5 version of this, check out the [video](https://youtu.be/JcE-1xzQTE0) or [blog post](https://vercel.com/blog/gpt-3-app-next-js-vercel-edge-functions).
+This project uses both [Mixtral](https://mistral.ai/news/mixtral-of-experts/) and [GPT-3.5](https://openai.com/api/) with streaming to generate improved prompts to get the most out of ChatGPT and Mixtral. It constructs a prompt based on the form and user input, sends it either to the Mixtral API through [Together.ai](https://www.together.ai/) or the GPT-3.5 API through OpenAI, then streams the response back to the application.
 
 ## Running Locally
 
@@ -19,5 +17,3 @@ If you'd like to see how I built the GPT-3.5 version of this, check out the [vid
 ## One-Click Deploy
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Nutlope/twitterbio&env=OPENAI_API_KEY,TOGETHER_API_KEY&project-name=twitter-bio-generator&repo-name=twitterbio)

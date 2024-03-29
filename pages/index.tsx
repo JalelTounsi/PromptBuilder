@@ -13,6 +13,7 @@ import {
   ReconnectInterval,
 } from 'eventsource-parser';
 import Toggle from '../components/Toggle';
+import ToggleTemplate from '../components/ToggleTemplate';
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
   const [vibe, setVibe] = useState<VibeType>('Professional');
   const [generatedBios, setGeneratedBios] = useState<String>('');
   const [isGPT, setIsGPT] = useState(false);
+  const [isPRMT, setIsPRMT] = useState(false);
 
   const bioRef = useRef<null | HTMLDivElement>(null);
 
@@ -31,9 +33,9 @@ const Home: NextPage = () => {
 
   const prompt = `Generate 3 ${
     vibe === 'Casual' ? 'relaxed' : vibe === 'Funny' ? 'silly' : 'Professional'
-  } twitter biographies with no hashtags and clearly labeled "1.", "2.", and "3.". Only return these 3 twitter bios, nothing else. ${
+  } improved promptsgraphies with no hashtags and clearly labeled "1.", "2.", and "3.". Only return these 3 improved promptss, nothing else. ${
     vibe === 'Funny' ? 'Make the biographies humerous' : ''
-  }Make sure each generated biography is less than 300 characters, has short sentences that are found in Twitter bios, and feel free to use this context as well: ${bio}${
+  }Make sure each generated biography is less than 300 characters, has short sentences that are found in improved promptss, and feel free to use this context as well: ${bio}${
     bio.slice(-1) === '.' ? '' : '.'
   }`;
 
@@ -120,10 +122,17 @@ const Home: NextPage = () => {
         <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
           Life is short, use better prompts
         </h1>
+{/* choosing the AI to work with Mixtral or GPT */}
         <div className="mt-7">
           <Toggle isGPT={isGPT} setIsGPT={setIsGPT} />
         </div>
 
+{/* choosing the prompt template to work with PRTM or RTF*/}
+<div className="mt-7">
+          <ToggleTemplate isPRMT={isPRMT} setIsPRMT={setIsPRMT} />
+        </div>
+
+{/* the prompt */}
         <div className="max-w-xl w-full">
           <div className="flex mt-10 items-center space-x-3">
             <Image

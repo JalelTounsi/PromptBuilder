@@ -8,28 +8,28 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="Generate your next Twitter bio in seconds."
+            content="Generate better prompts in seconds."
           />
-          {/* <meta property="og:site_name" content="twitterbio.io" /> */}
-          <meta property="og:site_name" content="PromptsBuilder" />
+          {/* <meta property="og:site_name" content="BetterPrompts.io" /> */}
+          <meta property="og:site_name" content="BetterPrompts" />
           <meta
             property="og:description"
-            content="Generate your next Twitter bio in seconds."
+            content="Generate better prompts in seconds."
           />
-          <meta property="og:title" content="Twitter Bio Generator" />
+          <meta property="og:title" content="Better Prompts Generator" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Twitter Bio Generator" />
+          <meta name="twitter:title" content="Better Prompts Generator" />
           <meta
             name="twitter:description"
-            content="Generate your next Twitter bio in seconds."
+            content="Generate better prompts in seconds."
           />
           <meta
             property="og:image"
-            content="https://twitterbio.io/og-image.png"
+            content="https://BetterPrompts.io/og-image.png"
           />
           <meta
             name="twitter:image"
-            content="https://twitterbio.io/og-image.png"
+            content="https://BetterPrompts.io/og-image.png"
           />
         </Head>
         <body>

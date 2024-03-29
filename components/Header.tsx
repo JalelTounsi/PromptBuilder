@@ -15,7 +15,7 @@ export default function Header() {
           Better Prompts
         </h1>
       </Link>
-      <Link href="/Templates" className="flex space-x-3">
+{/*       <Link href="/Templates" className="flex space-x-3">
         <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight">
         Templates
         </h3>
@@ -29,7 +29,7 @@ export default function Header() {
       <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight">
           Blog
         </h3>
-      </Link>
+      </Link> */}
       <a
         className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600 shadow-md transition-colors hover:bg-gray-100"
         href="https://github.com/JalelTounsi/PromptBuilder"

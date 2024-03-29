@@ -6,7 +6,7 @@ export default function Footer() {
       <div>
       </div>
       <div >
-        <h2 className="font-bold">Because AI output is only as good as your prompt</h2>
+        <h2 className="font-bold">Because AI's output is only as good as your prompt</h2>
       </div>
        <div className="flex space-x-4 pb-4 sm:pb-0">
       </div>

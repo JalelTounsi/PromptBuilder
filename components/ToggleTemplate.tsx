@@ -14,10 +14,10 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
         className="mr-3 text-sm flex justify-center gap-2 items-center"
       >
         <Image
-          src="/script-PRMT.svg"
+          src="/PRMT.svg"
           width={25}
           height={25}
-          alt="1 icon"
+          alt="PRMT logo"
           className={`${isPRMT && 'opacity-50'}`}
         />
         <span
@@ -53,13 +53,13 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
           }`}
         >
 {/* Role Tasks Format  */}
-        (RTF) Template
+(RTF) Template
         </span>{' '}
         <Image
-          src="/script-RTF.svg"
+          src="/RTF.svg"
           width={30}
           height={30}
-          alt="PRMT logo"
+          alt="RTF logo"
           className={`${!isPRMT && 'opacity-50'}`}
         />
       </Switch.Label>

@@ -16,13 +16,13 @@ export default function Toggle({ isGPT, setIsGPT }: any) {
           src="/mistral-logo.jpeg"
           width={25}
           height={25}
-          alt="1 icon"
+          alt="Mixtral"
           className={`${isGPT && 'opacity-50'}`}
         />
         <span
           className={`font-medium ${isGPT ? 'text-gray-400' : 'text-gray-900'}`}
         >
-          Mixtral
+Mixtral
         </span>{' '}
       </Switch.Label>
       <Switch

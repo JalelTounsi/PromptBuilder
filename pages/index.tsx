@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Toaster, toast } from 'react-hot-toast';
 import DropDown, { VibeType } from '../components/DropDown';
 import Footer from '../components/Footer';
@@ -12,6 +14,7 @@ import {
   ParsedEvent,
   ReconnectInterval,
 } from 'eventsource-parser';
+
 import Toggle from '../components/Toggle';
 import ToggleTemplate from '../components/ToggleTemplate';
 
@@ -111,7 +114,7 @@ const Home: NextPage = () => {
     <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Head>
         <title>Improved Prompt Generator</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/star.ico" />
       </Head>
 
       <Header />
@@ -225,6 +228,8 @@ const Home: NextPage = () => {
         </div>
       </main>
       <Footer />
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 };

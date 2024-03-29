@@ -7,16 +7,38 @@ export default function Header() {
       <Link href="/" className="flex space-x-3">
         <img
           alt="header text"
-          src="/write.svg"
+          src="/logo.svg"
           className="sm:w-9 sm:h-9 w-8 h-8"
         />
         <h1 className="sm:text-3xl text-2xl font-bold ml-2 tracking-tight">
-          twitterbio.io
+          {/* twitterbio.io */}
+          Prompts Builder
         </h1>
+      </Link>
+      <Link href="/Templates" className="flex space-x-3">
+        <img src="/public/logo.png"
+        className="sm:w-9 sm:h-9 w-8 h-8"
+        />
+        <h3 className="sm:text-1xl text-1xl ml-2 tracking-tight">
+          {/* twitterbio.io */}
+          Templates
+        </h3>
+      </Link>
+      <Link href="/About" className="flex space-x-3">
+        <h3 className="sm:text-1xl text-1xl ml-2 tracking-tight">
+          {/* twitterbio.io */}
+          About
+        </h3>
+      </Link>
+      <Link href="/Blog" className="flex space-x-3">
+        <h3 className="sm:text-1xl text-1xl ml-2 tracking-tight">
+          {/* twitterbio.io */}
+          Blog
+        </h3>
       </Link>
       <a
         className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600 shadow-md transition-colors hover:bg-gray-100"
-        href="https://github.com/Nutlope/twitterbio"
+        href="https://github.com/JalelTounsi/PromptBuilder"
         target="_blank"
         rel="noopener noreferrer"
       >

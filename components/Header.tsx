@@ -6,7 +6,7 @@ export default function Header() {
     <header className="flex justify-between items-center w-full mt-5 border-b-2 pb-7 sm:px-4 px-2">
       <Link href="/" className="flex space-x-3">
       <Image
-          src="/star.svg"
+          src="/medal.svg"
           width={25}
           height={25}
           alt="1 icon"
@@ -17,12 +17,12 @@ export default function Header() {
       </Link>
       <Link href="/Templates" className="flex space-x-3">
         <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight">
-          Templates
+        Templates
         </h3>
       </Link>
       <Link href="/About" className="flex space-x-3">
-      <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight">
-          About
+      <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight"> 
+        About
         </h3>
       </Link>
       <Link href="/Blog" className="flex space-x-3">
@@ -37,7 +37,7 @@ export default function Header() {
         rel="noopener noreferrer"
       >
         <Image
-          src="/heart.svg"
+          src="/love.svg"
           width={25}
           height={25}
           alt="1 icon"

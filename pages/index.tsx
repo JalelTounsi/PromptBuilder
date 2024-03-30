@@ -1,65 +1,90 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import { useRef, useState } from 'react';
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Toaster, toast } from 'react-hot-toast';
-import DropDown, { VibeType } from '../components/DropDown';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import LoadingDots from '../components/LoadingDots';
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { useRef, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster, toast } from "react-hot-toast";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import LoadingDots from "../components/LoadingDots";
 import {
   createParser,
   ParsedEvent,
   ReconnectInterval,
-} from 'eventsource-parser';
+} from "eventsource-parser";
 
-import Toggle from '../components/Toggle';
-import ToggleTemplate from '../components/ToggleTemplate';
+import Toggle from "../components/Toggle";
+import ToggleTemplate from "../components/ToggleTemplate";
+import DropDownDomain, { DomainType } from "../components/DropDownDomain";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
-  const [bio, setBio] = useState('');
-  const [vibe, setVibe] = useState<VibeType>('Professional');
-  const [generatedBios, setGeneratedBios] = useState<String>('');
+  const [userProblem, setuserProblem] = useState("");
+  const [tasks, setTasks] = useState("");
+  const [domain, setDomain] = useState<DomainType>("Business");
+  const [generatedPrompt, setGeneratedPrompt] = useState<String>("");
   const [isGPT, setIsGPT] = useState(false);
   const [isPRMT, setIsPRMT] = useState(false);
 
-  const bioRef = useRef<null | HTMLDivElement>(null);
+  const PromptRef = useRef<null | HTMLDivElement>(null);
 
-  const scrollToBios = () => {
-    if (bioRef.current !== null) {
-      bioRef.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollToPrompt = () => {
+    if (PromptRef.current !== null) {
+      PromptRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const prompt = `Generate 3 ${
-    vibe === 'Casual' ? 'relaxed' : vibe === 'Funny' ? 'silly' : 'Professional'
-  } improved promptsgraphies with no hashtags and clearly labeled "1.", "2.", and "3.". Only return these 3 improved promptss, nothing else. ${
-    vibe === 'Funny' ? 'Make the biographies humerous' : ''
-  }Make sure each generated biography is less than 300 characters, has short sentences that are found in improved promptss, and feel free to use this context as well: ${bio}${
-    bio.slice(-1) === '.' ? '' : '.'
-  }`;
+  //DomainType = 'Business' | 'Science' | 'Software Engineering'| 'Management' | 'Strategy';
+  const prompt = `As CoachGPT, an esteemed ${domain} authority with over two decades of elite coaching experience,
+  your consultation fees command tens of thousands of dollars per hour.
+  Your roles encompass:
+  - (1) To ask me the right questions
+  - (2) To confront me with my inconsistencies
+  - (3) To guide me towards the best decisions
+  - (4) To understand my challenges, even the most complex
+  - (5) To give me exact answers and process to follow
+  - (6) Guide me step by step on how to achieve my goals
+  - (7) Tailor your answers for my needs
+  - (8) Give me practical and actionable ideas on how to achieve my goal.
+
+  Now, I present you with a challenge based on a client's description:
+  Client's Description:
+  "${userProblem}"
+  and here's the tasks he's assigning to you:
+  "${tasks}"
+  Besides the tasks the client assigned to you, here are more tasks you have to fullfill:
+
+  - (1) guide the client towards the best decisions possible to achieve his goal
+  - (2) give exact answers and process to follow with examples
+  - (3) Guide step by step on how to achieve the goal
+  - (4) Tailor your answers for the needs of the client
+  - (5) Give practical and actionable ideas on how to achieve the goal.
+
+  Employ your keen intellect, attention to detail, and comprehensive understanding. 
+  Take the necessary time to craft an optimal solution.
+  Leverage your vast knowledge and advanced methodologies to provide a response that exceeds standard outputs tenfold. 
+  Your insights will undergo expert scrutiny, requiring adherence to industry best practices and robust logical underpinnings. 
+  Substantiate your answers with credible sources for validation."`;
 
   console.log({ prompt });
-  console.log({ generatedBios });
+  console.log({ generatedPrompt });
 
-  const generateBio = async (e: any) => {
+  const generatePrompt = async (e: any) => {
     e.preventDefault();
-    setGeneratedBios('');
+    setGeneratedPrompt(prompt);
     setLoading(true);
-    const response = await fetch(isGPT ? '/api/openai' : '/api/mistral', {
-      method: 'POST',
+    /*     const response = await fetch(isGPT ? "/api/openai" : "/api/mistral", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         prompt,
       }),
-    });
+    }); */
 
-    if (!response.ok) {
+    /*     if (!response.ok) {
       throw new Error(response.statusText);
     }
 
@@ -67,14 +92,14 @@ const Home: NextPage = () => {
     const data = response.body;
     if (!data) {
       return;
-    }
-
+    } */
+    /* 
     const onParseGPT = (event: ParsedEvent | ReconnectInterval) => {
-      if (event.type === 'event') {
+      if (event.type === "event") {
         const data = event.data;
         try {
-          const text = JSON.parse(data).text ?? '';
-          setGeneratedBios((prev) => prev + text);
+          const text = JSON.parse(data).text ?? "";
+          setGeneratedPrompt((prev) => prev + text);
         } catch (e) {
           console.error(e);
         }
@@ -82,21 +107,21 @@ const Home: NextPage = () => {
     };
 
     const onParseMistral = (event: ParsedEvent | ReconnectInterval) => {
-      if (event.type === 'event') {
+      if (event.type === "event") {
         const data = event.data;
         try {
-          const text = JSON.parse(data).choices[0].text ?? '';
-          setGeneratedBios((prev) => prev + text);
+          const text = JSON.parse(data).choices[0].text ?? "";
+          setGeneratedPrompt((prev) => prev + text);
         } catch (e) {
           console.error(e);
         }
       }
     };
 
-    const onParse = isGPT ? onParseGPT : onParseMistral;
-
+    const onParse = isGPT ? onParseGPT : onParseMistral; */
+    /* not calling the API for now */
     // https://web.dev/streams/#the-getreader-and-read-methods
-    const reader = data.getReader();
+    /*     const reader = data.getReader();
     const decoder = new TextDecoder();
     const parser = createParser(onParse);
     let done = false;
@@ -105,9 +130,10 @@ const Home: NextPage = () => {
       done = doneReading;
       const chunkValue = decoder.decode(value);
       parser.feed(chunkValue);
-    }
-    scrollToBios();
+    } */
+    scrollToPrompt();
     setLoading(false);
+    console.log(prompt);
   };
 
   return (
@@ -128,52 +154,98 @@ const Home: NextPage = () => {
         <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
           use better prompts
         </h1>
-{/* choosing the AI to work with Mixtral or GPT */}
+        {/* choosing the AI to work with Mixtral or GPT */}
         <div className="mt-7">
           <Toggle isGPT={isGPT} setIsGPT={setIsGPT} />
         </div>
 
-{/* choosing the prompt template to work with PRTM or RTF*/}
-<div className="mt-7">
+        {/* choosing the prompt template to work with PRTM or RTF*/}
+        <div className="mt-7">
           <ToggleTemplate isPRMT={isPRMT} setIsPRMT={setIsPRMT} />
         </div>
 
-{/* the prompt */}
+        {/* the prompt */}
+        {/* TODO:add space and a horizontal divider */}
+      </main>
+      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
+        <h2 className="sm:text-3xl text-4xl max-w-[708px] font-bold text-slate-900">
+          let's build the prompt
+        </h2>
+
+        {/* the domain */}
         <div className="max-w-xl w-full">
+          <div className="flex mb-5 items-center space-x-3">
+            <Image src="/1.svg" width={30} height={30} alt="1st step" />
+            <p className="text-left font-medium">
+              Select the domain of expertise
+            </p>
+          </div>
+          <div className="block">
+            <DropDownDomain
+              domain={domain}
+              setDomain={(newDomain) => setDomain(newDomain)}
+            />
+          </div>
+
+          {/* the problem description */}
           <div className="flex mt-10 items-center space-x-3">
             <Image
-              src="/1-black.png"
+              src="/2.svg"
               width={30}
               height={30}
-              alt="1 icon"
+              alt="2nd step"
               className="mb-5 sm:mb-0"
             />
             <p className="text-left font-medium">
-              Drop in your job{' '}
-              <span className="text-slate-500">(or your favorite hobby)</span>.
+              Drop in the problem you are facing{" "}
+              <span className="text-slate-500">
+                (or the one you are trying to solve)
+              </span>
+              .
             </p>
           </div>
           <textarea
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
+            value={userProblem}
+            placeholder={"I want to be a millionnaire but I don't know how."}
+/*             defaultValue={"I want to be a millionnaire but I don't know how!!"} */
+            onChange={(e) => setuserProblem(e.target.value)}
             rows={4}
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
-            placeholder={'e.g. Amazon CEO'}
           />
-          <div className="flex mb-5 items-center space-x-3">
-            <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
-            <p className="text-left font-medium">Select your vibe.</p>
-          </div>
-          <div className="block">
-            <DropDown vibe={vibe} setVibe={(newVibe) => setVibe(newVibe)} />
-          </div>
 
+          {/* the tasks */}
+          <div className="flex mt-10 items-center space-x-3">
+            <Image
+              src="/3.svg"
+              width={30}
+              height={30}
+              alt="3rd step"
+              className="mb-5 sm:mb-0"
+            />
+            <p className="text-left font-medium">
+              What are you expecting from the AI assisstant ?{" "}
+              <span className="text-slate-500">(list the tasks)</span>.
+            </p>
+          </div>
+          <textarea
+            value={tasks}
+            placeholder={
+              "(1) give me a list of business ideas \n(2) tell me what to do \n(3) Give me a action plan"
+            }
+/*             defaultValue={
+              "(1) give me a list of business ideas \n(2) tell me what to do \n(3) Give me a action plan"
+            } */
+            onChange={e => { setTasks(e.target.value); console.log(e.target.value) }}
+            rows={4}
+            className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
+          />
+          {/* The generator ! */}
           {!loading && (
             <button
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
-              onClick={(e) => generateBio(e)}
+              onClick={(e) => generatePrompt(e)}
             >
-              Generate your bio &rarr;
+              Generate your prompt &rarr;
             </button>
           )}
           {loading && (
@@ -192,33 +264,33 @@ const Home: NextPage = () => {
         />
         <hr className="h-px bg-gray-700 border-1 dark:bg-gray-700" />
         <div className="space-y-10 my-10">
-          {generatedBios && (
+          {generatedPrompt && (
             <>
               <div>
                 <h2
-                  className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto"
-                  ref={bioRef}
+                  className="sm:text-4xl text-3xl font-bold mx-auto"
+                  ref={PromptRef}
                 >
-                  Your generated bios
+                  Your generated Prompt
                 </h2>
               </div>
               <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
-                {generatedBios
-                  .substring(generatedBios.indexOf('1') + 3)
-                  .split(/2\.|3\./)
-                  .map((generatedBio) => {
+                {generatedPrompt
+                  .substring(generatedPrompt.indexOf("0"))
+                  .split(/2048\./)
+                  .map((generatedPrompt) => {
                     return (
                       <div
                         className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
                         onClick={() => {
-                          navigator.clipboard.writeText(generatedBio);
-                          toast('Bio copied to clipboard', {
-                            icon: '✂️',
+                          navigator.clipboard.writeText(generatedPrompt);
+                          toast("Prompt copied to clipboard", {
+                            icon: "✂️",
                           });
                         }}
-                        key={generatedBio}
+                        key={generatedPrompt}
                       >
-                        <p>{generatedBio}</p>
+                        <p>{generatedPrompt}</p>
                       </div>
                     );
                   })}

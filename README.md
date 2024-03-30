@@ -2,7 +2,7 @@
 
 This project generates better prompts for you using AI based on your input and requests.
 
-[![Better Prompts Generator](./public/screenshot.png)](https://www.BetterPrompts.io)
+<!-- [![Better Prompts Generator](./public/screenshot.png)](https://www.BetterPrompts.io) -->
 
 ## How it works
 

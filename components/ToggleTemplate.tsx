@@ -1,8 +1,8 @@
-import { Switch } from '@headlessui/react';
-import Image from 'next/image';
+import { Switch } from "@headlessui/react";
+import Image from "next/image";
 
 function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 /* PRMT = Persona Role Mission Task */
 /* RTF =  Role Task Format */
@@ -18,28 +18,30 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
           width={25}
           height={25}
           alt="PRMT logo"
-          className={`${isPRMT && 'opacity-50'}`}
+          className={`${isPRMT && "opacity-50"}`}
         />
         <span
-          className={`font-medium ${isPRMT ? 'text-gray-400' : 'text-gray-900'}`}
+          className={`font-medium ${
+            isPRMT ? "text-gray-400" : "text-gray-900"
+          }`}
         >
-{/* Persona Role Mission Tasks  */}
+          {/* Persona Role Mission Tasks  */}
           (PRMT) Template
-        </span>{' '}
+        </span>{" "}
       </Switch.Label>
       <Switch
         checked={isPRMT}
         onChange={setIsPRMT}
         className={classNames(
-          isPRMT ? 'bg-black' : 'bg-gray-200',
-          'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-offset-2'
+          isPRMT ? "bg-black" : "bg-gray-200",
+          "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-offset-2"
         )}
       >
         <span
           aria-hidden="true"
           className={classNames(
-            isPRMT ? 'translate-x-5' : 'translate-x-0',
-            'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
+            isPRMT ? "translate-x-5" : "translate-x-0",
+            "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
           )}
         />
       </Switch>
@@ -49,18 +51,18 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
       >
         <span
           className={`font-medium ${
-            !isPRMT ? 'text-gray-400' : 'text-gray-900'
+            !isPRMT ? "text-gray-400" : "text-gray-900"
           }`}
         >
-{/* Role Tasks Format  */}
-(RTF) Template
-        </span>{' '}
+          {/* Persona Role Tasks Format  */}
+          (PRTF) Template
+        </span>{" "}
         <Image
-          src="/RTF.svg"
+          src="/PRTF.svg"
           width={30}
           height={30}
           alt="RTF logo"
-          className={`${!isPRMT && 'opacity-50'}`}
+          className={`${!isPRMT && "opacity-50"}`}
         />
       </Switch.Label>
     </Switch.Group>

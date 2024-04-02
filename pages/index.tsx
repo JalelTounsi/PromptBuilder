@@ -154,14 +154,14 @@ const Home: NextPage = () => {
           use better prompts
         </h1>
         {/* choosing the AI to work with Mixtral or GPT */}
-        <div className="mt-7">
+{/*         <div className="mt-7">
           <Toggle isGPT={isGPT} setIsGPT={setIsGPT} />
         </div>
 
         {/* choosing the prompt template to work with PRTM or RTF*/}
-        <div className="mt-7">
+        {/* <div className="mt-7">
           <ToggleTemplate isPRMT={isPRMT} setIsPRMT={setIsPRMT} />
-        </div>
+        </div> */}
 
         {/* the prompt */}
         {/* TODO:add space and a horizontal divider */}
@@ -200,9 +200,9 @@ const Home: NextPage = () => {
         </form>
       </main> */}
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
-        <h2 className="sm:text-3xl text-4xl max-w-[708px] font-bold text-slate-900">
+{/*         <h2 className="sm:text-3xl text-4xl max-w-[708px] font-bold text-slate-900">
           let's build the prompt
-        </h2>
+        </h2> */}
 
         {/* the domain */}
         <div className="max-w-xl w-full">

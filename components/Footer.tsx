@@ -9,6 +9,8 @@ export default function Footer() {
           href="https://twitter.com/0x__Jalel"
           className="group"
           aria-label="Jalel on Twitter"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             aria-hidden="true"
@@ -21,6 +23,8 @@ export default function Footer() {
           href="https://github.com/JalelTounsi/PromptBuilder"
           className="group"
           aria-label="Jalel Tounsi on GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             aria-hidden="true"

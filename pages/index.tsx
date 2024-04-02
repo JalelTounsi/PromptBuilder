@@ -47,23 +47,23 @@ const Home: NextPage = () => {
   - (6) Guide me step by step on how to achieve my goals
   - (7) Tailor your answers for my needs
   - (8) Give me practical and actionable ideas on how to achieve my goal.
-
+  
   Now, I present you with a challenge based on a client's description:
   Client's Description:
   "${userProblem}"
   and here's the tasks he's assigning to you:
   "${tasks}"
   Besides the tasks the client assigned to you, here are more tasks you have to fullfill:
-
+  
   - (1) guide the client towards the best decisions possible to achieve his goal
   - (2) give exact answers and process to follow with examples
   - (3) Guide step by step on how to achieve the goal
   - (4) Tailor your answers for the needs of the client
   - (5) Give practical and actionable ideas on how to achieve the goal.
-
-  Employ your keen intellect, attention to detail, and comprehensive understanding. 
+  
+  Employ your keen intellect, attention to detail, and comprehensive understanding.
   Take the necessary time to craft an optimal solution.
-  Leverage your vast knowledge and advanced methodologies to provide a response that exceeds standard outputs tenfold. 
+  Leverage your vast knowledge and advanced methodologies to provide a response that exceeds standard outputs tenfold.
   Your insights will undergo expert scrutiny, requiring adherence to industry best practices and robust logical underpinnings. 
   Substantiate your answers with credible sources for validation."`;
 
@@ -230,10 +230,10 @@ const Home: NextPage = () => {
           <textarea
             value={tasks}
             placeholder={
-              "(1) give me a list of business ideas \n(2) tell me what to do \n(3) Give me a action plan"
+              "(1) give me a list of business ideas (2) tell me what to do (3) Give me a action plan"
             }
 /*             defaultValue={
-              "(1) give me a list of business ideas \n(2) tell me what to do \n(3) Give me a action plan"
+              "(1) give me a list of business ideas (2) tell me what to do (3) Give me a action plan"
             } */
             onChange={e => { setTasks(e.target.value); console.log(e.target.value) }}
             rows={4}

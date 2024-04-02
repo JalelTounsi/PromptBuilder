@@ -36,7 +36,7 @@ const Home: NextPage = () => {
   };
 
   //DomainType = 'Business' | 'Science' | 'Software Engineering'| 'Management' | 'Strategy';
-  const promptPRMT = `As CoachGPT, an esteemed ${domain} authority with over two decades of elite coaching experience, your consultation fees command tens of thousands of dollars per hour.
+  const promptPRMT = `As CoachGPT, an esteemed world class authority with over two decades of elite coaching experience, your consultation fees command tens of thousands of dollars per hour.
   Your roles encompass:
   - (1) To ask me the right questions
   - (2) To confront me with my inconsistencies
@@ -66,7 +66,7 @@ const Home: NextPage = () => {
   Remember that your insights will undergo expert scrutiny, requiring adherence to industry best practices and robust logical underpinnings. 
   Substantiate your answers with credible sources for validation.`;
 
-  const promptPRTF = `"Acting as a ${domain} expert, with over two decades of elite coaching experience, your consultation fees command tens of thousands of dollars per hour.
+  const promptPRTF = `"Acting as a world class expert, with over two decades of elite coaching experience, your consultation fees command tens of thousands of dollars per hour.
   Your roles encompass:
   - (1) To ask me the right questions
   - (2) To confront me with my inconsistencies
@@ -78,9 +78,7 @@ const Home: NextPage = () => {
   - (8) Give me practical and actionable ideas on how to achieve my goal.
   
   Now, I present you with a challenge based on the following client's prompt:
-  
-  "${userPrompt}".
-
+  ${userPrompt}.
   here are the tasks you have to fullfill:
   
   - (1) guide the client towards the best decisions possible to achieve his goal
@@ -205,63 +203,28 @@ const Home: NextPage = () => {
         {/* the prompt */}
         {/* TODO:add space and a horizontal divider */}
       </main>
-      {/* <main className="w-full max-w-md space-y-4 duration-1200 ease-in-out animate-in fade-in slide-in-from-bottom-4">
-        <form className="flex h-fit w-full flex-row items-center rounded-xl bg-black px-1 shadow-lg">
-          <input
-            type="text"
-            placeholder="cat"
-            className="h-10 w-full resize-none bg-transparent px-2 font-mono text-base text-white placeholder:text-gray-400 sm:text-sm border-0 outline-none ring-0 focus:ring-0 transition-all duration-300"
-            name="prompt"
-            onChange={(e) => setuserPrompt(e.target.value)}
-            value={userPrompt}
-          />
-          <button
-            type="submit"
-            aria-disabled="false"
-            className="flex aspect-square h-8 w-8 items-center justify-center rounded-lg text-white outline-0 ring-0 hover:bg-white/25 focus-visible:bg-white/25"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-corner-down-left shrink-0 -ml-px"
-            >
-              <polyline points="9 10 4 15 9 20"></polyline>
-              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
-            </svg>
-          </button>
-        </form>
-      </main> */}
+
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
-{/*         <h2 className="sm:text-3xl text-4xl max-w-[708px] font-bold text-slate-900">
-          let's build the prompt
-        </h2> */}
 
         {/* the domain */}
         <div className="max-w-xl w-full">
-          <div className="flex mb-5 items-center space-x-3">
+{/*           <div className="flex mb-5 items-center space-x-3">
             <Image src="/1.svg" width={30} height={30} alt="1st step" />
             <p className="text-left font-medium">
               Select the domain of expertise
             </p>
-          </div>
-          <div className="block">
+          </div> */}
+{/*           <div className="block">
             <DropDownDomain
               domain={domain}
               setDomain={(newDomain) => setDomain(newDomain)}
             />
-          </div>
+          </div> */}
 
           {/* the problem description */}
           <div className="flex mt-10 items-center space-x-3">
-            <Image
-              src="/2.svg"
+             <Image
+              src="/1.svg"
               width={30}
               height={30}
               alt="2nd step"

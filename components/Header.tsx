@@ -10,6 +10,7 @@ export default function Header() {
           Better Prompts
         </h1>
       </Link>
+      
       {/*       <Link href="/Templates" className="flex space-x-3">
         <h3 className="sm:text-1xl text-1xl font-bold ml-2 tracking-tight">
         Templates

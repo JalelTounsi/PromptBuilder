@@ -36,7 +36,7 @@ const Home: NextPage = () => {
   };
 
   //DomainType = 'Business' | 'Science' | 'Software Engineering'| 'Management' | 'Strategy';
-  const prompt = `As CoachGPT, an esteemed ${domain} authority with over two decades of elite coaching experience, your consultation fees command tens of thousands of dollars per hour.
+  const promptPRMT = `As CoachGPT, an esteemed ${domain} authority with over two decades of elite coaching experience, your consultation fees command tens of thousands of dollars per hour.
   Your roles encompass:
   - (1) To ask me the right questions
   - (2) To confront me with my inconsistencies
@@ -64,13 +64,53 @@ const Home: NextPage = () => {
   - Leverage your vast knowledge and advanced methodologies to provide a response that exceeds standard outputs tenfold.
   
   Remember that your insights will undergo expert scrutiny, requiring adherence to industry best practices and robust logical underpinnings. 
-  Substantiate your answers with credible sources for validation."`;
+  Substantiate your answers with credible sources for validation.`;
 
-  console.log({ prompt });
+  const promptPRTF = `"Acting as a ${domain} expert, with over two decades of elite coaching experience, your consultation fees command tens of thousands of dollars per hour.
+  Your roles encompass:
+  - (1) To ask me the right questions
+  - (2) To confront me with my inconsistencies
+  - (3) To guide me towards the best decisions
+  - (4) To understand my challenges, even the most complex
+  - (5) To give me exact answers and process to follow
+  - (6) Guide me step by step on how to achieve my goals
+  - (7) Tailor your answers for my needs
+  - (8) Give me practical and actionable ideas on how to achieve my goal.
+  
+  Now, I present you with a challenge based on the following client's prompt:
+  
+  "${userPrompt}".
+
+  here are the tasks you have to fullfill:
+  
+  - (1) guide the client towards the best decisions possible to achieve his goal
+  - (2) give exact answers and process to follow with examples
+  - (3) Guide step by step on how to achieve the goal
+  - (4) Tailor your answers for the needs of the client
+  - (5) Give practical and actionable ideas on how to achieve the goal.
+  
+  I urge you to :
+  - Employ your keen intellect, attention to detail, and comprehensive understanding
+  - Take the necessary time to craft an optimal solution.
+  - Leverage your vast knowledge and advanced methodologies to provide a response that exceeds standard outputs tenfold.
+  
+  Remember that your insights will undergo expert scrutiny, requiring adherence to industry best practices and robust logical underpinnings. 
+  Substantiate your answers with credible sources for validation.
+  Present your strategy in a visually engaging presentation format.`;
+  
+  var prompt = "";
+  /* console.log({ prompt });
   console.log({ generatedPrompt });
-
-  const generatePrompt = async (e: any) => {
+ */
+  if (isPRMT) {
+    prompt = promptPRMT;
+  } else {
+    prompt = promptPRTF;
+  }
+  
+  async function generatePrompt(e: any) {
     e.preventDefault();
+
     setGeneratedPrompt(prompt);
     setLoading(true);
     /*     const response = await fetch(isGPT ? "/api/openai" : "/api/mistral", {
@@ -82,7 +122,6 @@ const Home: NextPage = () => {
         prompt,
       }),
     }); */
-
     /*     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -92,7 +131,7 @@ const Home: NextPage = () => {
     if (!data) {
       return;
     } */
-    /* 
+    /*
     const onParseGPT = (event: ParsedEvent | ReconnectInterval) => {
       if (event.type === "event") {
         const data = event.data;
@@ -133,7 +172,7 @@ const Home: NextPage = () => {
     scrollToPrompt();
     setLoading(false);
     console.log(prompt);
-  };
+  }
 
   return (
     <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
@@ -156,12 +195,12 @@ const Home: NextPage = () => {
         {/* choosing the AI to work with Mixtral or GPT */}
 {/*         <div className="mt-7">
           <Toggle isGPT={isGPT} setIsGPT={setIsGPT} />
-        </div>
+        </div>*/}
 
         {/* choosing the prompt template to work with PRTM or RTF*/}
-        {/* <div className="mt-7">
+        <div className="mt-7">
           <ToggleTemplate isPRMT={isPRMT} setIsPRMT={setIsPRMT} />
-        </div> */}
+        </div>
 
         {/* the prompt */}
         {/* TODO:add space and a horizontal divider */}

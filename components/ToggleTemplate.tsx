@@ -20,7 +20,7 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
           alt="PRMT logo"
           className={`${isPRMT && "opacity-50"}`}
         />
-        <span
+        <span title="Persona Role Mission Tasks"
           className={`font-medium ${
             isPRMT ? "text-gray-400" : "text-gray-900"
           }`}
@@ -47,9 +47,9 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
       </Switch>
       <Switch.Label
         as="span"
-        className="ml-3 text-sm flex justify-center gap-2 items-center"
+        className="ml-3 text-sm flex justify-center gap-2 items-center "
       >
-        <span
+        <span title="Persona Role Tasks Format"
           className={`font-medium ${
             !isPRMT ? "text-gray-400" : "text-gray-900"
           }`}

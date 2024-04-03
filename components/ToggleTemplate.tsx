@@ -17,7 +17,7 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
           src="/PRMT.svg"
           width={25}
           height={25}
-          alt="PRMT logo"
+          alt="Persona Role Mission Tasks"
           className={`${isPRMT && "opacity-50"}`}
         />
         <span title="Persona Role Mission Tasks"
@@ -26,7 +26,7 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
           }`}
         >
           {/* Persona Role Mission Tasks  */}
-          (PRMT) Template
+          Persona Role Mission Tasks
         </span>{" "}
       </Switch.Label>
       <Switch
@@ -55,13 +55,13 @@ export default function ToggleTemplate({ isPRMT, setIsPRMT }: any) {
           }`}
         >
           {/* Persona Role Tasks Format  */}
-          (PRTF) Template
+          Persona Role Tasks Format
         </span>{" "}
         <Image
           src="/PRTF.svg"
           width={30}
           height={30}
-          alt="RTF logo"
+          alt="Persona Role Tasks Format"
           className={`${!isPRMT && "opacity-50"}`}
         />
       </Switch.Label>

@@ -17,6 +17,7 @@ import {
 import Toggle from "../components/Toggle";
 import ToggleTemplate from "../components/ToggleTemplate";
 import DropDownDomain, { DomainType } from "../components/DropDownDomain";
+import { RadioGroup } from "@headlessui/react";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
@@ -95,7 +96,7 @@ const Home: NextPage = () => {
   Remember that your insights will undergo expert scrutiny, requiring adherence to industry best practices and robust logical underpinnings. 
   Substantiate your answers with credible sources for validation.
   Present your strategy in a visually engaging presentation format.`;
-  
+
   var prompt = "";
   /* console.log({ prompt });
   console.log({ generatedPrompt });
@@ -105,7 +106,7 @@ const Home: NextPage = () => {
   } else {
     prompt = promptPRTF;
   }
-  
+
   async function generatePrompt(e: any) {
     e.preventDefault();
 
@@ -185,15 +186,15 @@ const Home: NextPage = () => {
           <b>27,061,984</b> improved prompts generated so far (presumably)
         </p>
         <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
-          Life is short,
+          Get the most out of AI,
         </h1>
-        <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
+        <h2 className="sm:text-4xl text-4xl max-w-[708px] font-bold text-slate-900">
           use better prompts
-        </h1>
+        </h2>
         {/* choosing the AI to work with Mixtral or GPT */}
-{/*         <div className="mt-7">
+        <div className="mt-7">
           <Toggle isGPT={isGPT} setIsGPT={setIsGPT} />
-        </div>*/}
+        </div>
 
         {/* choosing the prompt template to work with PRTM or RTF*/}
         <div className="mt-7">
@@ -205,16 +206,15 @@ const Home: NextPage = () => {
       </main>
 
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
-
         {/* the domain */}
         <div className="max-w-xl w-full">
-{/*           <div className="flex mb-5 items-center space-x-3">
+          {/*           <div className="flex mb-5 items-center space-x-3">
             <Image src="/1.svg" width={30} height={30} alt="1st step" />
             <p className="text-left font-medium">
               Select the domain of expertise
             </p>
           </div> */}
-{/*           <div className="block">
+          {/*           <div className="block">
             <DropDownDomain
               domain={domain}
               setDomain={(newDomain) => setDomain(newDomain)}
@@ -223,7 +223,7 @@ const Home: NextPage = () => {
 
           {/* the problem description */}
           <div className="flex mt-10 items-center space-x-3">
-             <Image
+            <Image
               src="/1.svg"
               width={30}
               height={30}
@@ -314,7 +314,7 @@ const Home: NextPage = () => {
               </div>
               <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
                 <div className="text-left bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border display-linebreak">
-                  <p style={{whiteSpace: 'pre-line'}}>{generatedPrompt}</p>
+                  <p style={{ whiteSpace: "pre-line" }}>{generatedPrompt}</p>
                   {/* add an action onclick when the user clicks on the toaster, the text is copied to the clipboard */}
                 </div>
               </div>
